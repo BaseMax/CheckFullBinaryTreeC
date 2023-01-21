@@ -48,6 +48,42 @@ int number_of_nodes(struct bin_tree *root)
 bool is_full_bin(struct bin_tree *root)
 {
     int nodes = number_of_nodes(root);
+    int mylog = log2(nodes) + 1;
 
-    return (nodes == (1 << (int)(log2(nodes) + 1)) - 1);
+    return (
+        nodes == (1 << mylog) - 1
+    );
+}
+
+int main(int argc, char** argv)
+{
+    // Create a binary tree
+    struct bin_tree *root = create_node(1);
+    root->left = create_node(2);
+    root->right = create_node(3);
+    root->left->left = create_node(4);
+    root->left->right = create_node(5);
+    root->right->left = create_node(6);
+    root->right->right = create_node(7);
+    root->left->left->left = create_node(8);
+    root->left->left->right = create_node(9);
+    root->left->right->left = create_node(10);
+    root->left->right->right = create_node(11);
+    root->right->left->left = create_node(12);
+    root->right->left->right = create_node(13);
+    root->right->right->left = create_node(14);
+
+    if (is_full_bin(root))
+        printf("The binary tree is full binary tree\n");
+    else
+        printf("The binary tree is not full binary tree\n");
+
+    root->right->right->right = create_node(15);
+
+    if (is_full_bin(root))
+        printf("The binary tree is full binary tree\n");
+    else
+        printf("The binary tree is not full binary tree\n");
+
+    return 0;
 }
