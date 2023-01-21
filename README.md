@@ -25,6 +25,10 @@ A full binary tree is defined as a binary tree in which all nodes have either ze
 
 I think the best algorithm to check if a binary tree is full or not is to count the number of nodes. If the tree is full, then the number of nodes is 2^h - 1, where h is the height of the tree. If the number of nodes is 2^h - 1, then the tree is full.
 
+Another algorithm is to it by logarithm. If the number of nodes is 2^h - 1, then the height of the tree is log2(n + 1) - 1. If the height of the tree is an integer, then the tree is full.
+
+Logarithm is a very fast algorithm. In this program, I use logarithm to check if a binary tree is full or not.
+
 We can also use recursion to check if a binary tree is full or not. But that is not the best algorithm.
 
 ## Using
